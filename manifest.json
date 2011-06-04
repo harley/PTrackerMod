@@ -1,0 +1,14 @@
+{
+  "name": "Pivotal Tracker Mod",
+  "version": "1.0",
+  "description": "Tweaks to UI",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "popup": "popup.html"
+  },
+  "background_page": "background.html",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ]
+}
+
