@@ -1,6 +1,6 @@
 {
   "name": "Pivotal Tracker Mod",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Tweaks to PivotalTracker UI.",
   "browser_action": {
     "default_icon": "images/icon.png",
