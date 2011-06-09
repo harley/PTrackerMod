@@ -1,17 +1,4 @@
-function hideDelivered(){
-  jQuery("a.accept").each(function(){
-      jQuery(this).parents(".storyItem").hide();
-  });
-}
-
-function showDelivered(){
-  jQuery("a.accept").each(function(){
-      jQuery(this).parents(".storyItem").show();
-  });
-}
-
 function hideAccepted(){
-  console.log("hideAccepted");
   jQuery("div.accepted").hide();
 }
 
@@ -30,3 +17,35 @@ function showOwned(){
       jQuery(this).parents(".storyItem").show();
   })
 }
+
+function hidePending(button_name){
+  jQuery("a." + button_name).each(function(){
+      jQuery(this).parents(".storyItem").hide();
+  });
+}
+
+function showPending(button_name){
+  jQuery("a." + button_name).each(function(){
+      jQuery(this).parents(".storyItem").show();
+  });
+}
+
+function hideAllStories(){
+  jQuery("div.storyItem").hide();
+}
+
+function showOnly(name){
+  hideAllStories();
+  showPending(name);
+}
+
+function onlyAccepted(){
+  hideAllStories();
+  showAccepted();
+}
+
+function onlyOwned(){
+  hideAllStories();
+  showOwned();
+}
+

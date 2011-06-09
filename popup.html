@@ -14,22 +14,23 @@
     <style type="text/css" media="screen">
     div{
       border: 1px solid #ccc;
-      cursor: pointer;
-      width: 200px;
+      width: 300px;
       padding: 3px;
       text-align: center;
     }
     div > span{
-      width: 80px;
+      width: 120px;
       display: inline-block;
+      font-size: 80%;
+      text-align: left;
     }
     div.accepted{
       background-color: #DAEBCF;
     }
-    div.delivered{
+    div.delivered, div.finished{
       background-color: #F0F0C6;
     }
-    div a {
+    div a, div span.button {
       display: inline-block;
       width: 49px;
       height: 18px;
@@ -42,13 +43,13 @@
       background-image: url(images/start.png)
     }
 
-    div.accepted a {
+    div.delivered span.button {
       background-image: url(images/accept.png)
     }
-    div.delivered a {
+    div.finished span.button {
       background-image: url(images/deliver.png)
     }
-    div.owned a{
+    div a{
       color: black;
     }
     </style>
@@ -57,20 +58,29 @@
   <div id="notifications"></div>
   -->
   <body>
-    <div class="accepted" onclick="callScript('hideAccepted()')">
+    <div class="accepted">
       <span>Accepted</span>
       <a class="hide" href="javascript:callScript('hideAccepted()')">hide</a>
       <a class="show" href="javascript:callScript('showAccepted()')">show</a>
+      <a class="only" href="javascript:callScript('onlyAccepted()')">only</a>
     </div>
-    <div class="delivered" onclick="callScript('hideAccepted()')">
-      <span>Delivered</span>
-      <a class="hide" href="javascript:callScript('hideDelivered()')">hide</a>
-      <a class="show" href="javascript:callScript('showDelivered()')">show</a>
+    <div class="delivered">
+      <span>Pending <span class="button">Accept</span></span>
+      <a class="hide" href="javascript:callScript('hidePending(\'accept\')')">hide</a>
+      <a class="show" href="javascript:callScript('showPending(\'accept\')')">show</a>
+      <a class="only" href="javascript:callScript('showOnly(\'accept\')')">only</a>
+    </div>
+    <div class="finished">
+      <span>Pending <span class="button">Deliver</span></span>
+      <a class="hide" href="javascript:callScript('hidePending(\'deliver\')')">hide</a>
+      <a class="show" href="javascript:callScript('showPending(\'deliver\')')">show</a>
+      <a class="only" href="javascript:callScript('showOnly(\'deliver\')')">only</a>
     </div>
     <div class="owned">
       <span>Owned</span>
       <a class="hide" href="javascript:callScript('hideOwned()')">hide</a>
       <a class="show" href="javascript:callScript('showOwned()')">show</a>
+      <a class="only" href="javascript:callScript('onlyOwned()')">only</a>
     </div>
   </body>
 </html>
